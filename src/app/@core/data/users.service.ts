@@ -8,6 +8,12 @@ let counter = 0;
 export class UserService {
 
   private users = {
+    issac: { name: 'Issac Prasad', picture: 'assets/images/issac.png' },
+    bruno: { name: 'Pastor Bruno', picture: 'assets/images/bruno.png' },
+    joelma: { name: 'Joelma', picture: 'assets/images/joelma.png' },
+    mahesh: { name: 'Mahesh Paul', picture: 'assets/images/mahesh.png' },
+    sandra: { name: 'Snadra curichiba', picture: 'assets/images/sandra.png' },
+    sonya: { name: 'Sonya', picture: 'assets/images/sonya.png' },
     nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
     eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
     jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
