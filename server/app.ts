@@ -38,7 +38,7 @@ mongodb
 
     if (!module.parent) {
       app.listen(app.get('port'), () => {
-        console.log('ÀGIM Accounting listening on port ' + app.get('port'));
+        console.log('AGIM Accounting listening on port ' + app.get('port'));
       });
     }
 
