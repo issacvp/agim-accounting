@@ -1,11 +1,16 @@
-import { browser, by, element } from 'protractor';
+import { $$, browser } from 'protractor';
 
-export class AppPage {
+export class Angular2FullStackPage {
   navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getNavbarElement(n) {
+    return $$('app-root a').get(n).getText();
   }
+
+  getNavbarButton() {
+    return $$('app-root button').get(0).getText();
+  }
+
 }
