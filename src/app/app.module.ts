@@ -1,58 +1,36 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { JwtModule } from '@auth0/angular-jwt';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+import { APP_BASE_HREF } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './@core/core.module';
 
-import { RoutingModule } from './routing.module';
-import { SharedModule } from './shared/shared.module';
-import { CatService } from './services/cat.service';
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardLogin } from './services/auth-guard-login.service';
-import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
-import { CatsComponent } from './cats/cats.component';
-import { AboutComponent } from './about/about.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
-import { AccountComponent } from './account/account.component';
-import { AdminComponent } from './admin/admin.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-
-export function tokenGetter() {
-  return localStorage.getItem('token');
-}
+import { AppRoutingModule } from './app-routing.module';
+import { ThemeModule } from './@theme/theme.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CatsComponent,
-    AboutComponent,
-    RegisterComponent,
-    LoginComponent,
-    LogoutComponent,
-    AccountComponent,
-    AdminComponent,
-    NotFoundComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    RoutingModule,
-    SharedModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        // whitelistedDomains: ['localhost:3000', 'localhost:4200']
-      }
-    })
-  ],
-  providers: [
-    AuthService,
-    AuthGuardLogin,
-    AuthGuardAdmin,
-    CatService,
-    UserService
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
-})
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule,
 
-export class AppModule { }
+    NgbModule.forRoot(),
+    ThemeModule.forRoot(),
+    CoreModule.forRoot(),
+  ],
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+  ],
+})
+export class AppModule {
+}
