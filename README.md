@@ -1,2 +1,2 @@
 # agim-accounting
-accounting software in MEAN stack
+This project is in development stage. Please dont check out any now!!
