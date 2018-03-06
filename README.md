@@ -1,2 +1,2 @@
 # agim-accounting
-This project is in development stage.
+This project is in testing stage.
