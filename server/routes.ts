@@ -8,7 +8,7 @@ export default function setRoutes(app) {
   const router = express.Router();
   const userCtrl = new UserCtrl();
   // Users
-  router.route('/login').post(userCtrl.login);
+  router.route('/auth/login').post(userCtrl.login);
   router.route('/users').get(userCtrl.getAll);
   router.route('/users/count').get(userCtrl.count);
   router.route('/user').post(userCtrl.insert);

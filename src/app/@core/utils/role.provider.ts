@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
+import { of as observableOf } from 'rxjs/observable/of';
 
 import { NbAuthService, NbAuthJWTToken } from '@nebular/auth';
 import { NbRoleProvider } from '@nebular/security';
 
 @Injectable()
 export class RoleProvider implements NbRoleProvider {
-
   constructor(private authService: NbAuthService) {
-  }
 
+  }
   getRole(): Observable<string> {
     return this.authService.onTokenChange()
       .pipe(
         map((token: NbAuthJWTToken) => {
-          return token.isValid() ? token.getPayload()['role'] : 'guest';
+          return token.isValid() ? token.getPayload().user.role : 'guest';
         }),
       );
   }
+  /*getRole(): Observable<string> {
+    return observableOf('admina');
+  }*/
 }

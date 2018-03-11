@@ -25,6 +25,13 @@ if (process.env.NODE_ENV === 'test') {
 
 mongoose.Promise = global.Promise;
 const mongodb = mongoose.connect(mongodbURI);
+/* replace when the mongodb connection authenticated
+mongoose.connect(process.env.mongodbURI,{
+  db: {native_parser:true},
+  server: {poolSize: 5},
+  user: process.env.MONGODB_USER,
+  pass: process.env.MONGODB_PASS,
+});*/
 
 mongodb
   .then((db) => {
@@ -33,7 +40,7 @@ mongodb
     setRoutes(app);
 
     app.get('/*', function(req, res) {
-      res.sendFile(path.join(__dirname, '../client/index.html'));
+      res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
     if (!module.parent) {

@@ -2,10 +2,13 @@ import * as bcrypt from 'bcryptjs';
 import * as mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  username: String,
+  firstName: String,
+  lastName: String,
   email: { type: String, unique: true, lowercase: true, trim: true },
   password: String,
-  role: String
+  role: String,
+  active: Boolean,
+  picture: String,  
 });
 
 // Before saving the user, hash the password
