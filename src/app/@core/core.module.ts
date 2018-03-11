@@ -9,6 +9,7 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
 import { AnalyticsService } from './utils/analytics.service';
+import { AuthGuard } from './utils/auth-guard.service';
 import { RoleProvider } from './utils/role.provider';
 
 const NB_CORE_PROVIDERS = [
@@ -170,6 +171,7 @@ const NB_CORE_PROVIDERS = [
   { provide: NB_AUTH_TOKEN_CLASS, useValue: NbAuthJWTToken },
   { provide: NbRoleProvider, useClass: RoleProvider },
   AnalyticsService,
+  AuthGuard,
 ];
 
 @NgModule({
