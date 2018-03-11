@@ -19,7 +19,4 @@ export class RoleProvider implements NbRoleProvider {
         }),
       );
   }
-  /*getRole(): Observable<string> {
-    return observableOf('admina');
-  }*/
 }

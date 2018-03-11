@@ -14,7 +14,6 @@
   [class.right]="position === 'normal'"
   [class.left]="position === 'inverse'">
   <nb-action icon="nb-grid-b" class="toggle-layout" (click)="toggleSettings()"></nb-action>
- <!--   <nb-action *nbIsGranted="['view', 'user']" >-->
   <nb-action *nbIsGranted="['view', 'user']">
     <nb-user [nbContextMenu]="userMenu" [name]="user?.firstName" [picture]="user?.picture"></nb-user>
   </nb-action>
