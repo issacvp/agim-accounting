@@ -34,6 +34,8 @@ export class HeaderComponent implements OnInit {
       });
     this.searchService.onSearchSubmit()
       .subscribe((value: { term: String; tag?: String }) => {
+        // On Header, its a global search , for users and churches and events etc
+        // But on individual compoenents it can be the singled out elements
         console.log(value); //take this value and send it to the back-end for the results. Need to develop a component for the results page
       });
   }
