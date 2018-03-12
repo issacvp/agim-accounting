@@ -14,7 +14,7 @@ import {
 const routes: Routes = [
   {
     path: 'pages',
-    canActivate: [ AuthGuard ],
+    //canActivate: [ AuthGuard ],
     loadChildren: 'app/pages/pages.module#PagesModule' },
   {
     path: 'auth',
@@ -46,8 +46,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth' },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
 const config: ExtraOptions = {

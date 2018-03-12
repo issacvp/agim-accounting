@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import { NbMenuService, NbSidebarService, NbSearchService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 
@@ -23,13 +23,18 @@ export class HeaderComponent implements OnInit {
   constructor(private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private analyticsService: AnalyticsService,
-    private authService: NbAuthService
+    private authService: NbAuthService,
+    private searchService: NbSearchService,
   ) {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
           this.user = token.getPayload().user;
         }
+      });
+    this.searchService.onSearchSubmit()
+      .subscribe((value: { term: String; tag?: String }) => {
+        console.log(value); //take this value and send it to the back-end for the results. Need to develop a component for the results page
       });
   }
 
